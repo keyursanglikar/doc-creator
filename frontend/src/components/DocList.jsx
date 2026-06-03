@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './DocList.css';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 const DocList = ({ documents, currentDoc, onSelectDoc, userId, onDelete }) => {
   const ownedDocs = documents.filter(doc => doc.ownerId === userId);
