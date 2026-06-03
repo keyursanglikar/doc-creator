@@ -1,0 +1,585 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.register-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.register-card {
+  background: linear-gradient(135deg, #0f173a 0%, #764ba2 100%);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  width: 80%;
+  max-width: 600px;
+  min-width: 320px;
+  height: 60vh;
+  min-height: 600px;
+  max-height: 700px;
+  padding: 32px 40px;
+  animation: slideUp 0.5s ease;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for card */
+.register-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.register-card::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.register-card::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.register-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.register-header h1 {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.register-header p {
+  color: white;
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+}
+
+.required {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 16px;
+  color: #9ca3af;
+  z-index: 1;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 10px 12px 10px 38px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.3s;
+  outline: none;
+  font-family: inherit;
+  background: white;
+}
+
+.input-wrapper input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+.input-wrapper input.error {
+  border-color: #ef4444;
+}
+
+.input-wrapper input.error:focus {
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  color: #9ca3af;
+  z-index: 1;
+  transition: color 0.2s;
+}
+
+.toggle-password:hover {
+  color: #667eea;
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 11px;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.error-message::before {
+  content: "⚠️";
+  font-size: 10px;
+}
+
+.password-hint {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 10px;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+.checkbox-group {
+  flex-direction: row;
+  align-items: center;
+  margin-top: 0;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  color: white;
+}
+
+.checkbox-label input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.checkbox-text a {
+  color: #667eea;
+  text-decoration: none;
+  margin: 0 2px;
+  font-weight: 500;
+}
+
+.checkbox-text a:hover {
+  text-decoration: underline;
+  color: #764ba2;
+}
+
+.register-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.register-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.register-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.register-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+.social-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: white;
+}
+
+.social-btn:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.2);
+  transform: translateY(-1px);
+}
+
+.social-icon {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.social-btn.google .social-icon {
+  color: #db4437;
+}
+
+.social-btn.github .social-icon {
+  color: white;
+}
+
+.login-link {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #667eea;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s;
+  padding: 2px 6px;
+}
+
+.link-btn:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+/* Password strength indicator */
+.password-strength {
+  margin-top: 6px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.strength-bar {
+  height: 100%;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.strength-bar.weak {
+  width: 33%;
+  background: #ef4444;
+}
+
+.strength-bar.medium {
+  width: 66%;
+  background: #f59e0b;
+}
+
+.strength-bar.strong {
+  width: 100%;
+  background: #10b981;
+}
+
+/* Scrollbar styling for card */
+.register-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.register-card::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.register-card::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.register-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-card {
+    width: 90%;
+    padding: 24px 32px;
+    height: 65vh;
+    min-height: 480px;
+  }
+  
+  .register-header h1 {
+    font-size: 24px;
+  }
+  
+  .register-header p {
+    font-size: 12px;
+  }
+  
+  .input-wrapper input {
+    padding: 9px 12px 9px 38px;
+    font-size: 13px;
+  }
+  
+  .social-buttons {
+    gap: 10px;
+  }
+  
+  .social-btn {
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .register-card {
+    width: 95%;
+    padding: 20px 24px;
+    height: 70vh;
+    min-height: 450px;
+  }
+  
+  .register-header h1 {
+    font-size: 22px;
+  }
+  
+  .social-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .social-btn {
+    padding: 10px;
+  }
+  
+  .form-group label {
+    font-size: 12px;
+  }
+  
+  .register-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-container {
+    padding: 16px;
+  }
+  
+  .register-card {
+    width: 100%;
+    padding: 16px 20px;
+    height: 75vh;
+    min-height: 420px;
+  }
+  
+  .register-header h1 {
+    font-size: 20px;
+  }
+  
+  .register-header p {
+    font-size: 11px;
+    display: none; /* Hide subtitle on very small screens */
+  }
+  
+  .input-wrapper input {
+    padding: 8px 10px 8px 35px;
+    font-size: 12px;
+  }
+  
+  .input-icon {
+    left: 10px;
+    font-size: 14px;
+  }
+  
+  .checkbox-text {
+    font-size: 11px;
+  }
+  
+  .register-form {
+    gap: 12px;
+  }
+}
+
+/* For very tall screens (1440p+) */
+@media (min-height: 900px) {
+  .register-card {
+    height: 55vh;
+    max-height: 650px;
+  }
+}
+
+/* For very short screens */
+@media (max-height: 600px) {
+  .register-card {
+    height: 85vh;
+    min-height: 400px;
+  }
+  
+  .register-header {
+    margin-bottom: 12px;
+  }
+  
+  .register-header h1 {
+    font-size: 20px;
+  }
+  
+  .register-header p {
+    display: none;
+  }
+  
+  .register-form {
+    gap: 10px;
+  }
+  
+  .form-group {
+    gap: 4px;
+  }
+}
+
+/* Loading animation for button */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.register-btn.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.register-btn.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+/* Focus visible for accessibility */
+.input-wrapper input:focus-visible,
+.register-btn:focus-visible,
+.social-btn:focus-visible,
+.link-btn:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Success state animation */
+@keyframes successPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.register-btn.success {
+  animation: successPulse 0.3s ease;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}

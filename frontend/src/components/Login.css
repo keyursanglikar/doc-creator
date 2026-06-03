@@ -1,0 +1,351 @@
+/* Login Container */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+  padding: 20px;
+}
+
+/* Login Card */
+.login-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  animation: fadeInUp 0.6s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Header Styles */
+.login-card h1 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.login-card > p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Form Styles */
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.login-card input {
+  padding: 14px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  outline: none;
+  font-family: inherit;
+}
+
+.login-card input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.login-card input::placeholder {
+  color: #aaa;
+}
+
+/* Button Styles */
+.login-card button[type="submit"] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.login-card button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.login-card button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Switch Auth Button */
+.switch-auth {
+  background: none !important;
+  color: #667eea !important;
+  padding: 10px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  margin-top: 0 !important;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.switch-auth:hover {
+  color: #764ba2 !important;
+  transform: none !important;
+  box-shadow: none !important;
+  text-decoration: underline;
+}
+
+/* Demo Users Section */
+.demo-users {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e1e5e9;
+}
+
+.demo-users p {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 12px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.demo-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.demo-buttons button {
+  background: #f8f9fa;
+  border: 1px solid #e1e5e9;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.demo-buttons button:hover {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading State for Button */
+.login-card button[type="submit"]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Error State for Inputs */
+.login-card input.error {
+  border-color: #f56565;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Success Animation */
+@keyframes successPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.login-card button[type="submit"].success {
+  animation: successPulse 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 30px 20px;
+    margin: 20px;
+  }
+  
+  .login-card h1 {
+    font-size: 28px;
+  }
+  
+  .demo-buttons {
+    flex-direction: column;
+  }
+  
+  .demo-buttons button {
+    width: 100%;
+  }
+}
+
+/* Dark Mode Support (if needed) */
+@media (prefers-color-scheme: dark) {
+  .login-card {
+    background: #1a1a2e;
+  }
+  
+  .login-card h1 {
+    color: white;
+  }
+  
+  .login-card > p {
+    color: #aaa;
+  }
+  
+  .login-card input {
+    background: #2a2a3e;
+    border-color: #3a3a4e;
+    color: white;
+  }
+  
+  .demo-buttons button {
+    background: #2a2a3e;
+    border-color: #3a3a4e;
+    color: #ddd;
+  }
+  
+  .demo-users {
+    border-top-color: #3a3a4e;
+  }
+}
+
+/* Additional Polish */
+.login-card {
+  backdrop-filter: blur(10px);
+}
+
+/* Focus visible for accessibility */
+.login-card input:focus-visible,
+.login-card button:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar (optional) */
+.login-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.login-card::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.login-card::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.login-card::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-input-wrapper input {
+  width: 100%;
+  padding-right: 45px;
+}
+
+.toggle-password-login {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+  color: #9ca3af;
+}
+
+.toggle-password-login:hover {
+  color: #667eea;
+}
+
+.divider {
+    display:flex ;
+    background-color: #1a1a2e;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  width: 100%;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  
+}
+
+.divider span {
+  
+  padding: 0 16px;
+  margin-top: 5vh;
+  color: #9ca3af;
+  font-size: 13px;
+  position: relative;
+  z-index: 1;
+}

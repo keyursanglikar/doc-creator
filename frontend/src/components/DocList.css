@@ -1,0 +1,113 @@
+.doc-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 8px;
+}
+
+.doc-section {
+  margin-bottom: 24px;
+}
+
+.doc-section h3 {
+  padding: 12px 16px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.doc-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+
+.doc-item:hover {
+  background: #f3f4f6;
+  transform: translateX(4px);
+}
+
+.doc-item.active {
+  background: #e0e7ff;
+  border-left: 3px solid #6366f1;
+}
+
+.doc-item.shared {
+  opacity: 0.85;
+}
+
+.doc-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.doc-title-list {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1f2937;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doc-date,
+.doc-owner {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.delete-doc {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #9ca3af;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  opacity: 0;
+}
+
+.doc-item:hover .delete-doc {
+  opacity: 1;
+}
+
+.delete-doc:hover {
+  background: #ef4444;
+  color: white;
+}
+
+.doc-list-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.doc-list-empty p {
+  font-size: 14px;
+}
+
+/* Scrollbar */
+.doc-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.doc-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.doc-list::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}

@@ -1,0 +1,322 @@
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Content */
+.modal-content {
+  background: white;
+  border-radius: 20px;
+  width: auto;
+  max-width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+  box-shadow: var(--shadow-xl);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal Header */
+.modal-content h3 {
+  padding: 24px 24px 16px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dark-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Share Form */
+.share-form {
+  padding: 20px 24px;
+  display: flex;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.share-form select {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: var(--transition);
+  background: white;
+  cursor: pointer;
+}
+
+.share-form select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.share-form button {
+  padding: 10px 20px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.share-form button:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.share-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Shared Users List */
+.shared-users {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.shared-users h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: var(--light-color);
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+.user-item:hover {
+  background: var(--border-color);
+}
+
+.user-info-share {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-name-share {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+.user-email-share {
+  font-size: 11px;
+  color: var(--gray-color);
+}
+
+.permission-badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.remove-access {
+  background: none;
+  border: none;
+  color: var(--danger-color);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: var(--transition);
+  font-size: 12px;
+}
+
+.remove-access:hover {
+  background: var(--danger-color);
+  color: white;
+}
+
+/* Share Message */
+.share-message {
+  padding: 12px 24px;
+  margin: 0;
+  background: #d4edda;
+  color: #155724;
+  font-size: 13px;
+  text-align: center;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.share-message.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Close Modal Button */
+.close-modal {
+  margin: 16px 24px 24px;
+  padding: 12px;
+  width: calc(100% - 48px);
+  background: var(--gray-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.close-modal:hover {
+  background: #5a6268;
+  transform: translateY(-1px);
+}
+
+/* No Users Message */
+.no-users {
+  padding: 20px;
+  text-align: center;
+  color: var(--gray-color);
+  font-size: 13px;
+}
+
+/* Loading State in Modal */
+.loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-right: 8px;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  .share-form {
+    flex-direction: column;
+  }
+  
+  .modal-content h3 {
+    font-size: 18px;
+    padding: 20px;
+  }
+  
+  .share-form,
+  .shared-users {
+    padding: 16px;
+  }
+}
+
+/* Animation for Removing User */
+.user-item.removing {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+/* Copy Link Section (Optional) */
+.copy-link-section {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.copy-link-section h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.link-container {
+  display: flex;
+  gap: 8px;
+}
+
+.link-container input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 12px;
+  background: var(--light-color);
+}
+
+.copy-btn {
+  padding: 8px 16px;
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.copy-btn:hover {
+  background: #059669;
+}

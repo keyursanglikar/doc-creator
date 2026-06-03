@@ -1,0 +1,159 @@
+/* File Upload Component - Fixed Version */
+.file-upload-wrapper {
+  padding: 0 16px 16px 16px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+/* Upload Dropzone */
+.upload-dropzone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: #f8fafc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.upload-dropzone:hover {
+  border-color: #6366f1;
+  background: #eef2ff;
+  transform: translateY(-2px);
+}
+
+.upload-dropzone.drag-active {
+  border-color: #6366f1;
+  background: #e0e7ff;
+  transform: scale(1.02);
+  border-style: solid;
+}
+
+/* Upload Icon */
+.upload-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+/* Upload Text */
+.upload-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1f2937;
+  margin-bottom: 6px;
+}
+
+.upload-subtext {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* Upload Progress */
+.upload-progress {
+  margin-top: 16px;
+  padding: 8px;
+  background: #f1f5f9;
+  border-radius: 8px;
+}
+
+.progress-bar {
+  height: 4px;
+  background: #e2e8f0;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  animation: progressAnimation 1s ease;
+  width: 100%;
+}
+
+@keyframes progressAnimation {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.progress-text {
+  font-size: 11px;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* Supported Types Badges */
+.supported-types {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.type-badge {
+  font-size: 10px;
+  padding: 4px 10px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  color: #475569;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.type-badge:hover {
+  background: #6366f1;
+  color: white;
+  border-color: #6366f1;
+  transform: translateY(-1px);
+}
+
+/* Loading State */
+.upload-dropzone.loading {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .file-upload-wrapper {
+    padding: 0 12px 12px 12px;
+  }
+  
+  .upload-dropzone {
+    padding: 16px;
+  }
+  
+  .upload-icon {
+    font-size: 32px;
+  }
+  
+  .upload-text {
+    font-size: 13px;
+  }
+}
+
+/* Animation for Upload Success */
+@keyframes uploadSuccess {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.upload-success-animation {
+  animation: uploadSuccess 0.3s ease;
+}
